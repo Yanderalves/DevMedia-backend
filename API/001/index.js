@@ -2,8 +2,21 @@ const express = require('express');
 
 const app = express();
 
+const calculadoraIMC = require("./calcIMC");
+
 app.get('/', (req, res) => {
-    res.json({mensagem : "Hello world"})
+    let peso = req.query.peso;
+    let altura = req.query.altura;
+
+    if (calculadoraIMC.validarDados(peso, altura)) {
+
+        let imc = calculadoraIMC.calcularIMC(peso, altura)
+
+        res.json({ sucess: true, imc: imc })
+    } else {
+        res.status(400).json({ sucess: false, message: "Dados fornecidos são inválidos" })
+    }
+
 });
 
 app.listen(8080, () => {
