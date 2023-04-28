@@ -3,8 +3,8 @@ const calcularIMC = (peso, altura) => {
 }
 
 
-const validarDados = (peso, altura) => {
-    if (isNaN(peso) && isNaN(altura)) {
+const validarDado = (dado) => {
+    if (isNaN(dado)) {
         return false;
     } else {
         return true;
@@ -12,4 +12,4 @@ const validarDados = (peso, altura) => {
 }
 
 exports.calcularIMC = calcularIMC;
-exports.validarDados = validarDados;
+exports.validarDado = validarDado;

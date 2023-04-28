@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     let peso = req.query.peso;
     let altura = req.query.altura;
 
-    if (calculadoraIMC.validarDados(peso, altura)) {
+    if (calculadoraIMC.validarDado(peso) && calculadoraIMC.validarDado(altura)) {
 
         let imc = calculadoraIMC.calcularIMC(peso, altura)
 
